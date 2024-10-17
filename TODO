@@ -1,0 +1,3 @@
+tooling:
+    ✔ Configure containerized sops; generate age key @done(24-07-07 09:24)
+    ✔ encrypt ssh passphrase @done(24-07-07 09:23)

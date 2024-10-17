@@ -1,0 +1,82 @@
+openapi: "3.0.0"
+info:
+  version: "1"
+  title: ""
+  description: ""
+paths: {}
+components:
+  securitySchemes: {}
+  schemas:
+    VBoxNetwork:
+      type: object
+      properties:
+        Discriminator:
+          type: string
+          enum: ["INTNET", "NET", "HOSTONLY"]
+          nullable: false
+    VBoxIntNet:
+      allOf:
+      - $ref: '#/components/schemas/VBoxNetwork'
+      - type: object
+        properties:
+          Name:
+            type: string
+            nullable: false
+            pattern: '^[a-zA-Z][a-zA-Z0-9_-]*\s$'
+    VBoxNat:
+      allOf:
+      - $ref: '#/components/schemas/VBoxNetwork'
+    VBoxHostOnly:
+      allOf:
+      - $ref: '#/components/schemas/VBoxNetwork'
+ 
+    Nic:
+      type: object
+      properties:
+        Mac:
+          type: string
+          nullable: false
+          pattern: '^([0-9A-Fa-f]{2}){6}$'
+        Network:
+          $ref: '#/components/schemas/VBoxNetwork'
+    VM:
+      type: object
+      properties:
+        Name:
+          type: string
+          nullable: false
+        Image:
+          type: string
+          enum: ["RHEL", "fedora"]
+          nullable: false
+          default: "RHEL"
+        Autostart:
+          type: boolean
+          nullable: false
+          default: false
+        Cores:
+          type: integer
+          nullable: false
+          default: 2
+          maximum: 8
+          minimum: 1
+        Ram:
+          type: integer
+          nullable: false
+          default: 2048
+          maximum: 16384
+          minimum: 256
+        VideoRam:
+          type: integer
+          nullable: false
+          default: 16
+          minimum: 8
+          maximum: 128
+        Nics:
+          type: array
+          items:
+            $ref: '#/components/schemas/Nic'
+          minItems: 1
+        CloudInitIso:
+          type: string
+          nullable: false

@@ -1,0 +1,50 @@
+    1  vi .config/sway/config 
+    2  swaymdg -t get_outputs
+    3  swaymsg -t get_outputs
+    4  cp -r /etc/sway/config ~/.config/sway/config
+    5  mkdir .config/sway
+    6  cp -r /etc/sway/config ~/.config/sway/config
+    7  vi .config/sway/config 
+    8  tmux
+    9  sudo dnf install tmux
+   10  sudo rpm-ostree install tmux
+   11  swaymsg -t get_outputs
+   12  5~
+   13  rofi
+   14  rofi -show
+   15  rofi
+   16  rofi -show drun
+   17  rogi
+   18  nmcli
+   19  nmcli device show
+   20  nmcli -p device show
+   21  sudo rpm-ostree search mt7xxx-firmware
+   22  sudo rpm-ostree install mt7xxx-firmware
+   23  nmcli dev status
+   24  sudo systemctl status wpa_supplicant
+   25  sudo systemctl start wpa_supplicant
+   26  sudo systemctl status wpa_supplicant
+   27  nmcli dev status
+   28  lspci
+   29  journalctl -b
+   30  journalctl -b | grep wifi
+   31  journalctl -b | grep wireless
+   32  journalctl -b | grep Wi-Fi
+   33  nmcli dev show
+   34  lsusb
+   35  rpm-ostree search asusctl
+   36  lspci
+   37  toolbox create asusctl
+   38  Enter with: toolbox enter asusctl
+   39  toolbox enter asusctl
+   40  sudo dnf search vscode
+   41  sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+   42  echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
+   43  sudo dnf check-update
+   44  sudo dnf install code
+   45  toolbox exit
+   46  exit
+   47  dnf search logseq
+   48  exit
+   49  history
+   50  history > tmp.txt
