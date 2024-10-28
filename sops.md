@@ -19,6 +19,25 @@ chmod +x /usr/local/bin/sops
 gpg --full-gen-key --expert
 ```
 
+### Configure gpg to allow passphrase entry on terminal
+
+[source](https://stackoverflow.com/questions/51504367/gpg-agent-forwarding-inappropriate-ioctl-for-device)
+
+``` bash
+cat << EOF > ~/.gnupg/gpg.conf
+use-agent 
+pinentry-mode loopback
+
+EOF
+
+cat << EOF > ~/.gnupg/gpg-agent.conf
+allow-loopback-pinentry
+
+EOF
+
+echo RELOADAGENT | gpg-connect-agent
+```
+
 ### .sops.yaml
 
 Minimum working example:
