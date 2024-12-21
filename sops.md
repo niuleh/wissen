@@ -54,3 +54,10 @@ cat << EOF > .bashrc.d/10-sops-editor
 export EDITOR="code --wait"
 EOF
 ```
+
+## aliases
+
+``` bash
+# ssh_pp | wl-copy
+alias ssh_pp="toolbox run -c vscode sops decrypt --extract '[\"ssh_key_passphrase\"]' ~/Documents/wissen/secrets.yml"
+```
